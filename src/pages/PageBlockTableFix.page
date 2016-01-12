@@ -1,0 +1,31 @@
+<apex:page controller="DummyController">
+    <script src="{!URLFOR($Resource.jQuery)}"></script>
+    <script src="{!URLFOR($Resource.StickHeader)}"></script>
+    <script type="text/javascript">
+        $.noConflict();
+        jQuery(document).ready(function() {
+            stickHeader('recordsTable', 'headerClass');
+            stickHeader('anotherRecordsTable', 'anotherHeaderClass');
+        });
+    </script>
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{!records}" var="record" id="recordsTable">
+            <apex:column headerValue="Name" headerClass="headerClass">
+                <apex:outputText value="{!record.Name}"/>
+            </apex:column>
+            <apex:column headerValue="Phone" headerClass="headerClass">
+                <apex:outputText value="{!record.Phone}" />
+            </apex:column>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{!records}" var="record" id="anotherRecordsTable">
+            <apex:column headerValue="Name" headerClass="anotherHeaderClass">
+                <apex:outputText value="{!record.Name}"/>
+            </apex:column>
+            <apex:column headerValue="Id" headerClass="anotherHeaderClass">
+                <apex:outputText value="{!record.Id}" />
+            </apex:column>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>
